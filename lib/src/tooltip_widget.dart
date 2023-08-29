@@ -37,6 +37,7 @@ class ToolTipWidget extends StatefulWidget {
   final String? title;
   final TextAlign? titleAlignment;
   final String? description;
+  final Widget? descriptionWidget;
   final TextAlign? descriptionAlignment;
   final TextStyle? titleTextStyle;
   final TextStyle? descTextStyle;
@@ -67,9 +68,10 @@ class ToolTipWidget extends StatefulWidget {
     required this.position,
     required this.offset,
     required this.screenSize,
-    required this.title,
+    this.title,
     required this.titleAlignment,
-    required this.description,
+    this.description,
+    this.descriptionWidget,
     required this.titleTextStyle,
     required this.descTextStyle,
     required this.container,
@@ -442,6 +444,12 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                                                 ),
                                       ),
                                     ),
+                                  if (widget.descriptionWidget != null)
+                                    Padding(
+                                        padding: widget.descriptionPadding ??
+                                            EdgeInsets.zero,
+                                        child:widget.descriptionWidget!),
+                                  if (widget.descriptionWidget == null)
                                   Padding(
                                     padding: widget.descriptionPadding ??
                                         EdgeInsets.zero,
