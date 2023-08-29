@@ -56,6 +56,7 @@ class Showcase extends StatefulWidget {
 
   /// Represents summary description of target widget
   final String? description;
+  final Widget? descriptionWidget;
 
   /// ShapeBorder of the highlighted box when target widget will be showcased.
   ///
@@ -246,9 +247,10 @@ class Showcase extends StatefulWidget {
 
   const Showcase({
     required this.key,
-    required this.description,
     required this.child,
     this.title,
+    this.description,
+    this.descriptionWidget,
     this.titleAlignment = TextAlign.start,
     this.descriptionAlignment = TextAlign.start,
     this.targetShapeBorder = const RoundedRectangleBorder(
@@ -332,6 +334,7 @@ class Showcase extends StatefulWidget {
         scaleAnimationAlignment = null,
         disableScaleAnimation = null,
         title = null,
+        descriptionWidget = null,
         description = null,
         titleAlignment = TextAlign.start,
         descriptionAlignment = TextAlign.start,
@@ -545,6 +548,7 @@ class _ShowcaseState extends State<Showcase> {
             offset: offset,
             screenSize: screenSize,
             title: widget.title,
+            descriptionWidget: widget.descriptionWidget,
             titleAlignment: widget.titleAlignment,
             description: widget.description,
             descriptionAlignment: widget.descriptionAlignment,
