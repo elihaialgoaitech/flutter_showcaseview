@@ -444,7 +444,10 @@ class _ShowcaseState extends State<Showcase> {
       timer = null;
     }
     await _reverseAnimateTooltip();
-    showCaseWidgetState.completed(widget.key);
+   
+    if (mounted) {
+      showCaseWidgetState.completed(widget.key);
+    }
   }
 
   Future<void> _getOnTargetTap() async {
